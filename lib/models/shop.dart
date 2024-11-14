@@ -104,13 +104,13 @@ class Shop extends ChangeNotifier {
     notifyListeners();
   }
 
-  // remove from cart
   void removeFromCart(CartItem cartItem) {
     int cartIndex = _cart.indexOf(cartItem);
     if (cartIndex != -1) {
       _cart[cartIndex].quntity--;
-    } else {
-      _cart.removeAt(cartIndex);
+      if (_cart[cartIndex].quntity == 0) {
+        _cart.removeAt(cartIndex);
+      }
     }
     notifyListeners();
   }
