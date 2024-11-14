@@ -3,7 +3,6 @@ import 'package:del_app_green/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -61,17 +60,15 @@ class _CartPageState extends State<CartPage> {
           const SizedBox(
             height: 15,
           ),
-          Expanded(
-            child: Column(
-              children: [
-                ListView.builder(
-                  itemCount: cart.length,
-                  itemBuilder: (context, int index) =>
-                      MyCartTile(item: cart[index]),
-                ),
-              ],
+          Consumer<Shop>(
+            builder: (contex, shop, child) => Expanded(
+              child: ListView.builder(
+                itemCount: cart.length,
+                itemBuilder: (context, int index) =>
+                    MyCartTile(cartItem: cart[index]),
+              ),
             ),
-          ),
+          )
         ],
       ),
     );
