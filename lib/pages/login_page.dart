@@ -1,6 +1,6 @@
 import 'package:del_app_green/components/my_icon_button.dart';
-import 'package:del_app_green/components/my_primary_button.dart';
-import 'package:del_app_green/components/my_textfield.dart';
+import 'package:del_app_green/components/my_intro_button.dart';
+import 'package:del_app_green/components/my_login_textfield.dart';
 import 'package:del_app_green/pages/main_screen.dart';
 import 'package:del_app_green/pages/register_page.dart';
 import 'package:del_app_green/themes/colors.dart';
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 25,
             ),
-            MyTextfield(
+            MyLoginTextField(
               hintText: 'Email of Phone Number',
               textEditingController: emailOrPhoneTextController,
               obscureText: false,
@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 15,
             ),
-            MyTextfield(
+            MyLoginTextField(
               hintText: 'Password',
               textEditingController: passwordController,
               obscureText: true,
@@ -109,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 10,
             ),
-            MyPrimaryButton(
+            MyIntroButton(
               text: 'Login',
               onTap: () => Navigator.push(
                 context,

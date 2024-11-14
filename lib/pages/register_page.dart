@@ -1,6 +1,6 @@
 import 'package:del_app_green/components/my_icon_button.dart';
-import 'package:del_app_green/components/my_primary_button.dart';
-import 'package:del_app_green/components/my_textfield.dart';
+import 'package:del_app_green/components/my_intro_button.dart';
+import 'package:del_app_green/components/my_login_textfield.dart';
 import 'package:del_app_green/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -59,7 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(
               height: 25,
             ),
-            MyTextfield(
+            MyLoginTextField(
               hintText: 'Name',
               textEditingController: nameController,
               obscureText: false,
@@ -67,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(
               height: 15,
             ),
-            MyTextfield(
+            MyLoginTextField(
               hintText: 'Email of Phone Number',
               textEditingController: emailOrPhoneTextController,
               obscureText: false,
@@ -75,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(
               height: 15,
             ),
-            MyTextfield(
+            MyLoginTextField(
               hintText: 'Password',
               textEditingController: passwordController,
               obscureText: true,
@@ -119,7 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(
               height: 10,
             ),
-            MyPrimaryButton(
+            MyIntroButton(
               text: 'Create account',
               onTap: () {},
             ),

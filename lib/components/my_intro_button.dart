@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyPrimaryButton extends StatelessWidget {
+class MyIntroButton extends StatelessWidget {
   final String text;
   final Function()? onTap;
-  const MyPrimaryButton({
+  const MyIntroButton({
     super.key,
     required this.text,
     required this.onTap,
@@ -15,8 +15,7 @@ class MyPrimaryButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 25),
-        padding: const EdgeInsets.all(25),
+        width: 170,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           gradient: const LinearGradient(
@@ -26,12 +25,11 @@ class MyPrimaryButton extends StatelessWidget {
             ],
           ),
         ),
-        child: Center(
-          child: Text(
-            text,
-            style: GoogleFonts.lato(
-                fontWeight: FontWeight.bold, color: Colors.white),
-          ),
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.yeonSung(fontSize: 20, color: Colors.white),
         ),
       ),
     );

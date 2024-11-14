@@ -1,6 +1,6 @@
-import 'package:del_app_green/components/my_primary_button.dart';
+import 'package:del_app_green/components/my_intro_button.dart';
 import 'package:del_app_green/pages/login_page.dart';
-import 'package:del_app_green/themes/fonts.dart';
+import 'package:del_app_green/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +35,7 @@ class IntroPage extends StatelessWidget {
             const SizedBox(
               height: 220,
             ),
-            MyPrimaryButton(
+            MyIntroButton(
               text: "Next",
               onTap: () {
                 Navigator.push(

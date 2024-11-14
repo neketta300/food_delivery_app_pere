@@ -1,4 +1,6 @@
+import 'package:del_app_green/pages/cart_page.dart';
 import 'package:del_app_green/pages/home_page.dart';
+import 'package:del_app_green/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,6 +29,8 @@ class _MainScreenState extends State<MainScreen> {
         index: _selectedTab,
         children: const [
           HomePage(),
+          CartPage(),
+          SearchPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
