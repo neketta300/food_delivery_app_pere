@@ -134,10 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                   fontWeight: FontWeight.bold,
                   fontSize: 10,
                 ),
-                colors: const [
-                  Color.fromRGBO(83, 232, 139, 1),
-                  Color.fromRGBO(21, 190, 119, 1),
-                ],
+                colors: myTextGradient,
               ),
             ),
             const SizedBox(
@@ -150,10 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
               ),
-              colors: const [
-                Color.fromRGBO(83, 232, 139, 1),
-                Color.fromRGBO(21, 190, 119, 1),
-              ],
+              colors: myTextGradient,
             ),
             const SizedBox(
               height: 20,

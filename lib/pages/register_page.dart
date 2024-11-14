@@ -134,10 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   fontWeight: FontWeight.w700,
                   fontSize: 10,
                 ),
-                colors: const [
-                  Color.fromRGBO(83, 232, 139, 1),
-                  Color.fromRGBO(21, 190, 119, 1),
-                ],
+                colors: myTextGradient,
               ),
             ),
             const SizedBox(

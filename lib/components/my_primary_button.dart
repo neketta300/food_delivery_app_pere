@@ -1,3 +1,4 @@
+import 'package:del_app_green/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,12 +20,7 @@ class MyPrimaryButton extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          gradient: const LinearGradient(
-            colors: [
-              Color.fromARGB(255, 83, 232, 139),
-              Color.fromARGB(255, 21, 190, 119)
-            ],
-          ),
+          gradient: myGradient,
         ),
         child: Center(
           child: Text(

@@ -1,4 +1,5 @@
 import 'package:del_app_green/models/food.dart';
+import 'package:del_app_green/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -43,10 +44,7 @@ class MyFoodTile extends StatelessWidget {
             ),
             const Spacer(),
             GradientText(
-              colors: const [
-                Color.fromRGBO(83, 232, 139, 1),
-                Color.fromRGBO(21, 190, 119, 1),
-              ],
+              colors: myTextGradient,
               "\$" + food.price.toString(),
               style:
                   GoogleFonts.lato(fontSize: 22, fontWeight: FontWeight.w900),

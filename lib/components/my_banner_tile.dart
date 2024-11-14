@@ -8,9 +8,8 @@ class MyBannerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 323,
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: Image.asset(
