@@ -1,3 +1,4 @@
+import 'package:del_app_green/components/my_app_bar.dart';
 import 'package:del_app_green/components/my_food_tile.dart';
 import 'package:del_app_green/components/my_search_textfield.dart';
 import 'package:del_app_green/models/food.dart';
@@ -44,33 +45,7 @@ class _SearchPageState extends State<SearchPage> {
     final shop = context.read<Shop>();
     final foundFood = shop.foundFood;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        title: Column(
-          children: [
-            const SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  "Explore Your Favorite Food",
-                  style: GoogleFonts.yeonSung(
-                    fontSize: 26,
-                  ),
-                ),
-                const Icon(
-                  Icons.notifications_active_outlined,
-                  size: 30,
-                  color: Color.fromRGBO(108, 203, 146, 1),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
+      appBar: myAppBar,
       body: Column(
         children: [
           const SizedBox(

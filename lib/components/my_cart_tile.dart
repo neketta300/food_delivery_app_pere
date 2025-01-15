@@ -1,5 +1,4 @@
 import 'package:del_app_green/components/my_quantity_selector.dart';
-import 'package:del_app_green/main.dart';
 import 'package:del_app_green/models/cart_item.dart';
 import 'package:del_app_green/models/shop.dart';
 import 'package:del_app_green/themes/colors.dart';
@@ -63,7 +62,7 @@ class MyCartTile extends StatelessWidget {
                   shop.addToCart(cartItem.food);
                 },
                 onDecrement: () {
-                  if (cartItem.quntity > 1) {
+                  if (cartItem.quntity >= 1) {
                     shop.removeFromCart(cartItem);
                   } else if (cartItem.quntity == 1) {}
                 }),

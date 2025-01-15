@@ -1,7 +1,7 @@
+import 'package:del_app_green/auth/auth_service.dart';
 import 'package:del_app_green/components/my_icon_button.dart';
 import 'package:del_app_green/components/my_intro_button.dart';
 import 'package:del_app_green/components/my_login_textfield.dart';
-import 'package:del_app_green/pages/main_screen.dart';
 import 'package:del_app_green/pages/register_page.dart';
 import 'package:del_app_green/themes/colors.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +17,28 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // get auth service
+  final authService = AuthService();
+
   TextEditingController emailOrPhoneTextController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void login() async {
+    final email = emailOrPhoneTextController.text;
+    final password = passwordController.text;
+
+    try {
+      await authService.signInWithEmailPassword(email, password);
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Error: $e"),
+          ),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,12 +131,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             MyIntroButton(
               text: 'Login',
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MainScreen(),
-                ),
-              ),
+              onTap: login,
             ),
             const SizedBox(
               height: 15,

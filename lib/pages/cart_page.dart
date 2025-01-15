@@ -1,4 +1,6 @@
+import 'package:del_app_green/components/my_app_bar.dart';
 import 'package:del_app_green/components/my_cart_tile.dart';
+import 'package:del_app_green/components/my_secondaty_button.dart';
 import 'package:del_app_green/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,63 +16,68 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    final shop = context.read<Shop>();
-    final cart = shop.cart;
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        title: Column(
-          children: [
-            const SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  "Explore Your Favorite Food",
-                  style: GoogleFonts.yeonSung(
-                    fontSize: 26,
-                  ),
+    return Consumer<Shop>(
+      builder: (context, shop, child) {
+        //cart
+        final userCart = shop.cart;
+
+        // scafold ui
+        return Scaffold(
+          appBar: myAppBar,
+          body: Column(
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                      child: Text(
+                        "Cart",
+                        style: GoogleFonts.yeonSung(
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    userCart.isEmpty
+                        ? Expanded(
+                            child: Center(
+                              child: Text(
+                                "Cart is empty...",
+                                style: GoogleFonts.yeonSung(
+                                    fontSize: 18,
+                                    color:
+                                        const Color.fromARGB(204, 68, 68, 68)),
+                              ),
+                            ),
+                          )
+                        : Expanded(
+                            child: ListView.builder(
+                              itemCount: userCart.length,
+                              itemBuilder: (context, int index) =>
+                                  MyCartTile(cartItem: userCart[index]),
+                            ),
+                          ),
+                    if (userCart.isNotEmpty)
+                      // checkout button
+                      MySecondatyButton(
+                        onTap: () {},
+                        text: "Go to Checkout",
+                      ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                  ],
                 ),
-                const Icon(
-                  Icons.notifications_active_outlined,
-                  size: 30,
-                  color: Color.fromRGBO(108, 203, 146, 1),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 15,
-          ),
-          Center(
-            child: Text(
-              "Cart",
-              style: GoogleFonts.yeonSung(
-                fontSize: 24,
               ),
-            ),
+            ],
           ),
-          const SizedBox(
-            height: 15,
-          ),
-          Consumer<Shop>(
-            builder: (contex, shop, child) => Expanded(
-              child: ListView.builder(
-                itemCount: cart.length,
-                itemBuilder: (context, int index) =>
-                    MyCartTile(cartItem: cart[index]),
-              ),
-            ),
-          )
-        ],
-      ),
+        );
+      },
     );
   }
 }

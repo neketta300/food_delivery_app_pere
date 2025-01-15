@@ -87,6 +87,10 @@ class Shop extends ChangeNotifier {
 
   // cart list
   final List<CartItem> _cart = [];
+
+  // history list
+  final List<CartItem> _history = [];
+
   // add to cart
   void addToCart(Food food) {
     CartItem? cartItem = _cart.firstWhereOrNull((item) {

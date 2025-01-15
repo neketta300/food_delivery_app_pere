@@ -1,3 +1,4 @@
+import 'package:del_app_green/components/my_app_bar.dart';
 import 'package:del_app_green/components/my_banner_tile.dart';
 import 'package:del_app_green/components/my_food_tile.dart';
 import 'package:del_app_green/models/shop.dart';
@@ -20,26 +21,7 @@ class _HomePageState extends State<HomePage> {
     final banners = shop.banners;
     final foodMenu = shop.food;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text(
-              "Explore Your Favorite Food",
-              style: GoogleFonts.yeonSung(
-                fontSize: 26,
-              ),
-            ),
-            const Icon(
-              Icons.notifications_active_outlined,
-              size: 30,
-              color: Color.fromRGBO(108, 203, 146, 1),
-            )
-          ],
-        ),
-      ),
+      appBar: myAppBar,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -57,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                     itemCount: banners.length, // количество элементов в листе
                     controller: ScrollController(
                         initialScrollOffset:
-                            260.0), // добавляем смещение чтобы начинало показывать лист не с первого элемента
+                            220.0), // добавляем смещение чтобы начинало показывать лист не с первого элемента
                     itemBuilder: (context, int index) => MyBannerTile(
                       banner: banners[index],
                     ),

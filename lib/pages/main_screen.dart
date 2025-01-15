@@ -1,5 +1,7 @@
 import 'package:del_app_green/pages/cart_page.dart';
+import 'package:del_app_green/pages/history_page.dart';
 import 'package:del_app_green/pages/home_page.dart';
+import 'package:del_app_green/pages/profile_page.dart';
 import 'package:del_app_green/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,29 +29,31 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: IndexedStack(
         index: _selectedTab,
-        children: const [
-          HomePage(),
-          CartPage(),
-          SearchPage(),
+        children: [
+          const HomePage(),
+          const SearchPage(),
+          const CartPage(),
+          //const HistoryPage(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedLabelStyle: GoogleFonts.lato(color: Colors.black, fontSize: 14),
-        showUnselectedLabels: false,
+        //showUnselectedLabels: false,
         currentIndex: _selectedTab,
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
               icon: SvgPicture.asset("assets/images/home.svg"), label: 'Home'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset("assets/images/cart.svg"), label: 'Cart'),
-          BottomNavigationBarItem(
               icon: SvgPicture.asset("assets/images/serch.svg"),
               label: 'Serch'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset("assets/images/history.svg"),
-              label: 'History'),
+              icon: SvgPicture.asset("assets/images/cart.svg"), label: 'Cart'),
+          // BottomNavigationBarItem(
+          //     icon: SvgPicture.asset("assets/images/history.svg"),
+          //     label: 'History'),
           BottomNavigationBarItem(
               icon: SvgPicture.asset("assets/images/user.svg"),
               label: 'Profile'),

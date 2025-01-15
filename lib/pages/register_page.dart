@@ -1,3 +1,4 @@
+import 'package:del_app_green/auth/auth_service.dart';
 import 'package:del_app_green/components/my_icon_button.dart';
 import 'package:del_app_green/components/my_intro_button.dart';
 import 'package:del_app_green/components/my_login_textfield.dart';
@@ -18,6 +19,28 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController emailOrPhoneTextController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  final authSevice = AuthService();
+
+  void signUp() async {
+    final email = emailOrPhoneTextController.text;
+    final name = nameController.text;
+    final password = passwordController.text;
+
+    try {
+      await authSevice.signUpWithEmailPassword(email, password);
+
+      Navigator.pop(context);
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Error: $e"),
+          ),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +144,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             MyIntroButton(
               text: 'Create account',
-              onTap: () {},
+              onTap: signUp,
             ),
             const SizedBox(
               height: 15,
